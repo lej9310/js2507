@@ -1,0 +1,88 @@
+.img_wrap {
+    position: relative;
+    height: 35vh;
+    overflow: hidden;
+    width: 100%;
+}
+
+.img_wrap img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.8;
+    top: -100px;
+    left: 0;
+    object-fit: cover;
+}
+
+.text_on_img {
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: rgba(135, 207, 235, 0.7);
+    text-shadow: 0 0 5px black;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+}
+
+table {
+    width: 95%;
+    margin: 30px auto;
+    box-shadow: 0 10px 10px skyblue;
+}
+
+table,
+tr,
+td {
+    border: 1px solid skyblue;
+    border-collapse: collapse;
+    padding: 5px 10px 5px 10px;
+}
+
+.head {
+    text-align: center;
+    font-weight: bold;
+    background-color: lightblue;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    /* transform 효과 적용을 위해 */
+    display: inline-block;
+     /* 부드러운 크기 변화 */
+    transition: transform 0.3s ease;
+}
+
+a:hover {
+    color: blue;
+    /* 1.1배 글씨 크기 확대 */
+    transform: scale(1.1);
+}
+
+.table li::before {
+    content: "";
+    display: inline-block;
+    /* 불릿 이미지 너비 */
+    width: 15px;
+    /* 불릿 이미지 높이 */
+    height: 15px;
+    /* 불릿과 텍스트 간 간격 */
+    margin-right: 15px;
+    background-image: url(../work/attach_button.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* 이미지 전체를 꽉 채워서 보이도록 */
+    vertical-align: middle;
+    /* 텍스트와 수직 가운데 정렬 */
+}
