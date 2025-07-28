@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 템플릿 리터럴로 문자열 연결하기</title>
+</head>
+
+<body>
+    <p id="result1">이름_반</p>
+    <p id="result2">계절2</p>
+    <h1 id="result3">계절3</h1>
+    <h2 id="result4">계절4</h2>
+
+    <!-- 스크립트 태그 안에 기술 -->
+    <script>
+
+        // 선언부
+        let name = 'kim'
+        let classRoom = 204
+        let spring = "봄"
+        let summer = "여름"
+        let fall =  "가을"
+        let winter = "겨울"
+        let season = ["봄", "여름", "가을", "겨울"];
+
+        // 구현부
+        let result1 = "이름 : " + name + ", 반 : " + classRoom
+        let result2 = "3월은 " + spring + ", 8월은 " + summer + ", 10월은 "  + fall + ", 1월은 " + winter + "이다."
+        let result4 = `${spring}은 따뜻해!   ${summer}은 뜨거워!   ${fall}은 시원해!   ${winter}은 추워!`
+        
+
+        // 출력부
+        console.log(result1)
+        console.log(`이름은 ${name}이고, ${classRoom}반이야~!`)
+        console.log(`${name}님, ${classRoom}호 강의실로 입장하세요.`)        
+        document.getElementById("result1").innerHTML = result1
+        
+        console.log(result2)
+        document.getElementById("result2").innerHTML = result2
+        
+        console.log(season[0])
+        console.log(season[1])
+        console.log(season[2])
+        console.log(season[3])
+        document.getElementById("result3").innerHTML = season
+
+        console.log(result4)
+        document.getElementById("result4").innerText = result4
+        document.getElementById("result4").innerHTML = result4
+        document.getElementById("result4").innerHTML = `<h2>${result4}</h2>`
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건문</title>
+</head>
+
+<body>
+  <script>
+    // Do it! 사용자가 입력한 숫자가 3의 배수인지 판별하기
+    // parseInt: 프롬트 창에 입력된 값을 무조건 정수로 변경
+    let userNumber = parseInt(prompt('숫자를 입력하세요.'));
+    
+    // if (조건) {조건 결과값이 true일 때 실행할 명령
+    //  } else {조건 결과값이 false일 때 실행할 명령}
+    if (userNumber % 3 == 0)
+      alert('3의 배수입니다.');    
+    else
+      alert('3의 배수가 아닙니다');
+  </script>
+</body>
+
+</html>
