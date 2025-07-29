@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자료형 & 자료형 변환 함수(p519-p522)</title>
+</head>
+
+<body>
+    <div>
+        <p id="result1"></p>
+        <p id="result2"></p>
+        <p id="result3"></p>
+        <p id="result4"></p>
+    </div>
+    <p id="hr"></p>
+    <div>
+        <p id="r1"></p>
+        <p id="r2"></p>
+        <p id="r3"></p>
+        <p id="r4"></p>
+        <p id="r5"></p>
+        <p id="r6"></p>
+        <p id="r7"></p>
+        <p id="r8"></p>
+        <p id="r9"></p>
+        <p id="r10"></p>
+        <p id="r11"></p>
+        <p id="r12"></p>
+        <p id="r13"></p>
+        <p id="r14"></p>
+    </div>
+
+
+    <script>
+        var d = document;
+
+        input = "5"
+        console.log(`${input}`)
+        d.getElementById("result1").innerHTML = `<h1>[input='5'] ${input}</h1>`
+
+        // string * number => number 변환
+        result = input * 10
+        console.log(`${result}`)
+        d.getElementById("result2").innerHTML = `<h1>[input * 10] ${result}</h1>`
+
+        // string + number => string 변환
+        let one = '20'
+        let two = 25
+        result = one + two
+        console.log(`${result}`)
+        d.getElementById("result3").innerHTML = `<h1>['20' + 25] ${result} </h1>`
+
+        // string - number => Number 변환
+        result = one - two
+        console.log(`${result}`)
+        d.getElementById("result4").innerHTML = `<h1>['20' - 25] ${result}</h1>`
+
+        d.getElementById("hr").innerHTML = `=========================================================`
+
+        // 자료형 변환 함수
+        // Number
+        r = Number('123')
+        d.getElementById("r1").innerHTML = `<h1>[Number('123'): 숫자로 변환] ${r}</h1>`
+
+        r = Number('123ABC')
+        d.getElementById("r2").innerHTML = `<h1>[Number('123ABC')] ${r}</h1>`
+
+        // parseInt
+        r = parseInt('123')
+        d.getElementById("r3").innerHTML = `<h1>[parseInt('123')] ${r}</h1>`
+
+        r = parseInt('123.45')
+        d.getElementById("r4").innerHTML = `<h1>[parseInt('123.45')] ${r}</h1>`
+
+        r = parseInt('123ABC')
+        d.getElementById("r5").innerHTML = `<h1>[parseInt('123ABC')] ${r}</h1>`
+
+        // parseFloat
+        r = parseFloat('123')
+        d.getElementById("r6").innerHTML = `<h1>[parseFloat('123')] ${r}</h1>`
+
+        r = parseFloat('123.45')
+        d.getElementById("r7").innerHTML = `<h1>[parseFloat('123.45') ${r}</h1>`
+
+        r = parseFloat('123ABC')
+        d.getElementById("r8").innerHTML = `<h1>[parseFloat('123ABC')] ${r}</h1>`
+
+        // string
+        r = String(123)
+        console.log(`${r}`)
+        d.getElementById("r9").innerHTML = `<h1>[String(123)] ${r}</h1>`
+
+        r = String(true)
+        d.getElementById("r10").innerHTML = `<h1>[String(true)] ${r}</h1>`
+
+        // 불린(Boolean): true/false
+        r = Boolean(1)
+        d.getElementById("r11").innerHTML = `<h1>[Boolean(1)] ${r}</h1>`
+
+        r = Boolean(0)
+        d.getElementById("r12").innerHTML = `<h1>[Boolean(0)] ${r}</h1>`
+
+        r = Boolean('abc')
+        d.getElementById("r13").innerHTML = `<h1>[Boolean('abc')] ${r}</h1>`
+
+        r = Boolean('')
+        d.getElementById("r14").innerHTML = `<h1>[Boolean('')] ${r}</h1>`
+    </script>
+</body>
+
+</html>
