@@ -44,6 +44,11 @@ td {
     padding: 5px 10px 5px 10px;
 }
 
+.field_off {
+    background: rgba(128, 128, 128, 0.2);
+    color: white;
+}
+
 .head {
     text-align: center;
     font-weight: bold;
@@ -85,4 +90,8 @@ a:hover {
     /* 이미지 전체를 꽉 채워서 보이도록 */
     vertical-align: middle;
     /* 텍스트와 수직 가운데 정렬 */
+}
+
+tr.field_off > a {
+    color: white !important;
 }
