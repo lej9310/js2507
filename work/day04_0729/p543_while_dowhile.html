@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p.543_while & do~while</title>
+  <style>
+    body {
+      font-size: 2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    // Do it! while문을 사용해 별 표시하기
+    // 조건부터 체크
+    let stars = parseInt(prompt("별을 몇 개 표시할까요?"))
+    let output1 = ""
+    while (stars > 0) {
+      document.write("*")
+      stars--
+    }  
+    
+    // Do it! do...while문을 사용해 별 표시하기
+    // 명령을 일단 실행한 후 조건 체크
+    let stars_new = parseInt(prompt("별을 몇 개 표시할까요?"))
+    let output2 = ""
+    do {
+      document.write("*")
+      stars_new--
+    } while (stars_new > 0)
+    
+    alert(`첫 번째 별 출력 결과는" ${output1}, 두 번째 별 출력 결과 ${output2}`)
+    // alert("첫 번째 별 출력 결과:\n" + output1)
+    // alert("두 번째 별 출력 결과:\n" + output2)   
+
+
+  </script>
+</body>
+
+</html>
