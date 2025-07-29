@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day4. JS_변수 선언 & 초기화 & 출력</title>
+</head>
+
+<body>
+    <h1 id="r1"></h1>
+    <h1 id="r2"></h1>
+    <h1 id="r3"></h1>
+    <h1 id="r4"></h1>
+    <h1 id="r5"></h1>
+
+    <script>
+        // ===== 변수 선언 ============== 
+        // 상수: 항상 같은수
+        const num0 = 5;
+        const num1 = 10;
+        const num2 = 15;
+        // 변수 : let, var
+        let xx
+        let yy
+        let zz
+        let x, y, z
+
+        // 변수 선언 & 초기화 ============
+        let str = "string"
+
+        // 초기화 =======================
+        // const는 변화 X
+        xx = 0; yy = 0; zz = 0
+
+        // 출력 템플릿:백틱(`) 사용
+        result = num1 + num2
+        console.log(`${result}`)
+        document.getElementById("r1").innerHTML = `<h1> [10 + 15 =] ${result} </h1>`
+
+    </script>
+</body>
+
+</html>
