@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>var 예약어로 변수 선언하기</title>
+</head>
+
+<body>
+  <script>
+    // p.560) Do it! var 예약어로 변수 선언하기 =================
+    var sum = 0
+
+    function addNumber() {      
+      var result      // 지역 변수: 함수 안에서 선언한 변수
+      sum = 10 + 20
+      result = 10 + 20
+    }
+
+    addNumber()
+    console.log(sum)
+    console.log(result)
+
+
+    // p.561) Do it! var 예약어로 변수 선언하기 =================
+    var sum1 = 0
+
+    function addNumber() {
+      sum1 = 10 + 20
+      // 전역 변수
+      result1 = 10 + 20
+    }
+
+    addNumber()
+    console.log(sum1)
+    console.log(result1)
+  </script>
+</body>
+
+</html>
