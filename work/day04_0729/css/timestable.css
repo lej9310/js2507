@@ -18,7 +18,14 @@
     background-color: lightpink;
 }
 
-.times h3 {
+.times3 {
+    padding: 0 30px 40px 30px;
+    margin: 15px;
+    border: 1px solid #ccc;
+    background-color: lightgreen;
+}
+
+h3 {
     text-align: center;
     font-weight: bold;
 }

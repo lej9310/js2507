@@ -38,6 +38,26 @@
 			}
 		</script>
 	</div>
+
+
+	<div class="container">
+		<script>
+			// Do it! 구구단, 2단에서 4단까지만 표시하기
+			for (let i = 2; i <= 9; i++) {
+				document.write(`<div class="times3">`);
+				document.write(`<h3>${i}단</h3>`);
+				for (let j = 1; j <= 9; j++) {
+					document.write(`${i} X ${j} = ${i * j} <br>`);
+				}
+				document.write(`</div>`);
+				
+				// 4단에서 브레이크
+				if (i === 4) {
+					break
+				}
+			}
+		</script>
+	</div>
 </body>
 
 </html>
