@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>함수</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			font-size: 1.2em;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- p.571) Do it! 매개변수를 사용한 함수 선언하기 및 호출하기 -->
+	<script>
+		function addNumber(num1, num2) {
+			let sum = num1 + num2
+			return sum // 결과값을 함수 밖에서 사용하려면 다음에 넘겨줄 값(sum) 지정
+		}
+
+		let result = addNumber(2, 3) //2, 3: 인수(arguement)
+		document.write(`두 수를 더한 값: ${result}`)
+	</script>
+
+	<!-- p.572) Do it! 매개변수 기본값 사용하기 -->
+	<script>
+		function multiple(a, b = 5, c = 10) { //기본값 지정
+			return a * b + c
+		}
+		multiple(5, 10, 20) // a = 5, b = 10, c = 20
+		multiple(10, 20)    // a = 10, b = 20, c = 10(기본값)
+		multiple(30)        // a = 30, b = 5(기본값), c = 10(기본값)
+	</script>
+</body>
+
+</html>

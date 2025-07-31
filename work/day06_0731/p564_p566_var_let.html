@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>재선언과 재할당</title>
+</head>
+
+<body>
+  <!-- p.564) ============================================== -->
+  <script>
+    //  Do it! 변수의 재선언과 재할당
+    var seed = 3
+
+    for (let i = 1; i <= 5; i++) {
+      var seed = 5 // 변수 재선언: 위에서 할당한 값을 무시하고 새로운 값 할당
+      var result = seed * i
+      console.log(result)
+    }
+  </script>
+
+  <!-- p.565) ============================================== -->
+  <script>
+    // Do it! let 변수를 사용해 1부터 10까지 더하는 코드를 작성하기
+    function sum() {
+      let n = 10  // let 예약어를 사용한 변수는 블록 스코프를 가짐(블록 안에서 선언한 변수는 블럭 안에서만 유효하고, 벗어나면 사용할 수 없음)
+      let result = 0  // sum 함수 안에서만 사용 가능
+
+      // i는 for문 안에서만 사용 가능
+      for (let i = 1; i <= n; i++) {
+        result += i
+      }
+
+      console.log(result)
+    }
+
+    // 함수값 출력
+    sum()
+    // 함수 박에서 사용하면 오류
+    console.log(result)
+  </script>
+
+  <!-- p.566) ============================================== -->
+  <script>
+    // Do it! let 예약어로 선언한 변수 재선언하기
+
+    function doIt() {
+      let x = 1
+      console.log(x)
+      let x = 2 // var과 다르게 let은 재선언 안 됨
+      console.log(x)
+    }
+
+    // 콘솔창에 오류 표시
+    doIt()
+  </script>
+</body>
+
+</html>

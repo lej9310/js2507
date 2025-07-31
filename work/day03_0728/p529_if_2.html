@@ -4,27 +4,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>조건문</title>
+  <title>if 조건문</title>
 </head>
 
 <body>
   <script>
     //  Do it! 사용자가 입력한 숫자가 3의 배수인지 판별하기 
-    
-    // 숫자를 입력받는 입력창 띄우기
-    // 취소 버튼을 누르면 userNumber의 입력값(문자열)이나 null 저장
-    let userNumber = prompt('숫자를 입력하세요.');
 
-    if (userNumber !== null) {
+    // 숫자를 입력받는 입력창 띄우기    
+    let userNumber = prompt('숫자를 입력하세요.');
+    
+    // 데이터를 입력하지 않고 확인 누르면
+    if (userNumber === "")
+      alert("데이터를 입력하지 않았습니다.")
+
+    // 취소 버튼을 누르면 userNumber의 입력값(문자열)이나 null 저장
+    else if (userNumber !== null)
       // ===: 피연산자 & 자료형 같음
       if (parseInt(userNumber) % 3 === 0)
-        alert('3의 배수입니다');
+        alert('3의 배수입니다')
       else
-        alert('3의 배수가 아닙니다.');
-    }
-    // 사용자가 취소하면 else문의 알림을 띄움
+        alert('3의 배수가 아닙니다.')
+
     else
-    alert ('입력이 취소됐습니다.');
+      // 사용자가 취소하면 else문의 알림을 띄움
+      alert('입력이 취소됐습니다.'); console.log('입력이 취소됐습니다.')
+
   </script>
 </body>
 

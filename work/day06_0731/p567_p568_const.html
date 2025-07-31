@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>const 예약어: 상수 선언 & 블록 스코프</title>
+</head>
+
+<body>
+  <!-- p.567) // Do it! const 변수의 재선언과 재할당 -->
+  <script>
+    const user = "Kim" // const 예약어는 재선언 & 재할당 X & 블록 스코프
+    console.log(`My name is ${user}`);  // My name is Kim
+
+    const user = "Lee " // 재선언 오류: 다른 값 할당 불가
+    console.log(`My Name is ${user}`)
+  </script>
+
+
+  <!-- p.568 )// Do it! 호이스팅이 없는 let 변수 -->
+  <!-- var 예약어는 호이스팅(변수 선언 전에 실행하여도 오류 없음)이 일어남 -->
+  <!-- let/const 예약어는 선언 전에 사용하면 오류 발생 -->
+  <script>
+    let x = 10
+
+    function display() {
+      console.log(x) // 10
+      console.log(y) // 선언 전에 사용함 => 오류 발생
+      let y = 20
+    }
+
+    display()
+  </script>
+
+</body>
+
+</html>

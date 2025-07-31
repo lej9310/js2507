@@ -4,21 +4,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>조건문 if</title>
+  <title>if 조건문</title>
 </head>
 
 <body>
   <script>
+    let userNumber = prompt('숫자를 입력하세요.')
 
-    let userNumber = prompt('숫자를 입력하세요.');
+    if (userNumber === "")
+      alert('데이터가 입력되지 않았습니다.')
 
-    if (userNumber !== null)
-      // // 조건 연산자(? :)를 사용해 사용자가 입력한 숫자가 3의 배수인지 판별하기
-      // (조건) ? true일 때 실행할 명령 : false일 때 실행할 명령    
-      (parseInt(userNumber) % 3 === 0) ? alert('3의 배수입니다.') : alert('3의 배수가 아닙니다.');
+    // // 조건 연산자(? :)를 사용해 사용자가 입력한 숫자가 3의 배수인지 판별하기
+    // (조건) ? true일 때 실행할 명령 : false일 때 실행할 명령    
+    else if (userNumber !== null)
+      (parseInt(userNumber) % 3 === 0 && userNumber != 0) ? alert('3의 배수입니다.') : alert('3의 배수가 아닙니다.')
+      // <풀어 쓸 경우>
+      // if (parseInt(userNumber) % 3 === 0)
+      //   alert('3의 배수입니다.')
+      // else
+      //   alert('3의 배수가 아닙니다.')
     else
-      alert('입력이 취소됐습니다.');
+      alert('입력이 취소됐습니다.')    
+  </script>
 
+
+
+  <!-- 오류: if문과 else if문의 내용 바꾸기  -->
+  <!-- if -> else if -> else 위에서 순차적으로 검사 실행 -->
+  <!-- userNumber1이 빈 문자열("")인 상황 => null이 아님
+    => 첫 번째 if 조건이 항상 참 => 아래 else if문은 절대 실행할 수 없음 -->
+  <script>
+    let userNumber1 = prompt('숫자를 입력하세요.')
+
+    if (userNumber1 !== null)
+      (parseInt(userNumber1) % 3 === 0) ? alert('3의 배수입니다.') : alert('3의 배수가 아닙니다.')
+
+    else if (userNumber1 === "")
+      alert('데이터가 입력되지 않았습니다.')
+
+    else
+      alert('입력이 취소됐습니다.')
   </script>
 </body>
 

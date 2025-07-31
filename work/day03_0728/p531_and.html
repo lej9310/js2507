@@ -10,13 +10,28 @@
 <body>
   <script>
     // Do it! AND 연산자(&&)를 사용해 조건 체크하기
-    let numberOne = parseInt(prompt("50미만의 숫자를 입력하세요."));
-    let numberTwo = parseInt(prompt("50미만의 숫자를 입력하세요."));
+    let numberOne = prompt("50미만의 숫자를 입력하세요.");
+    let numberTwo = prompt("50미만의 숫자를 입력하세요.");
 
-    if (numberOne < 50 && numberTwo < 50)
-      alert("두 개의 숫자 모두 50 미만이군요.");
+    // 1. 빈 문자열 체크
+    if (numberOne === "" || numberTwo === "")
+      alert("두 개의 입력창 모두 값을 입력하세요.")
+
+    // 2. 취소(null) 체크
+    else if (numberOne !== null && numberTwo !== null)
+      // 3.숫자 여부 체크: 둘 중 하나라도 숫자가 아니면
+      if (isNaN(numberOne) || isNaN(numberTwo))
+        alert("입력창에 숫자만 입력하세요.")
+      else
+        (numberOne < 50 && numberTwo < 50) ? alert("두 개의 숫자 모두 50 미만이군요.") : alert("조건에 맞지 않는 숫자가 있습니다.")
+        // if (numberOne < 50 && numberTwo < 50)
+        //   alert("두 개의 숫자 모두 50 미만이군요.")
+        // else
+        //   alert("조건에 맞지 않는 숫자가 있습니다.")
+
     else
-      alert("조건에 맞지 않는 숫자가 있습니다.")
+      alert("입력을 취소하였습니다.")
+
   </script>
 </body>
 
