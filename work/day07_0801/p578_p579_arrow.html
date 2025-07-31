@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화살표 함수</title>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0 50px;
+      font-size: 1.2em;
+    }
+
+    .title {
+      color: black;
+      display: block;
+      width: 90%;
+      font-size: 2rem;
+      font-weight: bold;
+      background: lightgreen;
+      text-align: center;
+    }
+    
+    .accent {
+      font-weight: bold;
+      color: #00f;
+    }
+
+    .para {
+      color: red;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="title">p.578) <span class="para">매개변수가 없는</span> 화살표 함수</p>
+
+  <script>
+    const hi1 = function () {
+      return "안녕하세요?";
+    }
+
+    const hi2 = () => {
+      return "안녕하세요?";
+    }
+
+    const hi3 = () => "안녕하세요?"
+
+    document.write(`<p>[매개변수가 없는 함수] <span class="accent">${hi1}</span></p>`)
+    document.write(`<p>[매개변수가 없는 화살표 함수] <span class="accent">${hi2}</span></p>`)
+    document.write(`<p>[매개변수가 없는 화살표 함수(중괄호 생략)] <span class="accent">${hi3}</span></p>`)
+  </script>
+
+
+  <!-- ===================================== -->
+  <p class="title">p.579) <span class="para">매개변수 1개</span>일 때 화살표 함수로 바꾸기</p>
+
+  <script>
+    let hi4 = function (user) {
+      document.write(`${user}님, 안녕하세요?`)
+    }
+
+    let hi5 = (user) => { document.write(`${user}님, 안녕하세요?`) }
+    
+    document.write(`<p>[매개변수가 1개인 함수] <span class="accent">${hi4}</span></p>`)
+    document.write(`<p>[매개변수가 1개인 화살표 함수] <span class="accent">${hi5}</span></p>`)
+  </script>
+
+  <!-- ===================================== -->
+  <p class="title">p.579) <span class="para">매개변수가 2개</span> 이상일 때 화살표 함수로 바꾸기</p>
+  
+  <script>    
+    let sum1 = function (a, b) {
+      return a + b;
+    };
+
+    let sum2 = (a, b) => a + b
+
+    document.write(`<p>[매개변수가 2개인 함수] <span class="accent">${sum1}</span></p>`)
+    document.write(`<p>[매개변수가 2개인 화살표 함수] <span class="accent">${sum2}</span></p>`)
+
+  </script>
+</body>
+
+</html>

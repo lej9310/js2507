@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>즉시 실행 함수</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0 50px;
+    }
+
+    h1 {
+      display: block;
+      width: 90%;
+      font-size: 2rem;
+      background: lightgreen;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: red;
+    }
+
+    .comment {
+      width: 90%;
+      color: darkred;
+      font-size: small;
+      text-align: left;
+      background-color: rgba(211, 211, 211, 0.4);      
+    }
+
+    .accent {
+      font-weight: bold;
+      color: #00f;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>p.575) 익명 함수 선언 및 실행하기</h1>
+  <p class="comment">* 익명 함수 : 이름이 없는 함수</p>
+  <script>
+
+    // 익명함수를 sum 변수에 할당
+    let sum = function (a, b) {
+      return a + b
+    }
+
+    document.writeln(`익명함수를 sum변수에 할당 => `)
+    document.write(`<p>[sum 변수 실행 결과] ${sum(10, 20)}</p>`)
+  </script>
+
+  <!-- =============================================== -->
+  <h1>p.576) 즉시 실행 함수 사용하기</h1>
+  <p class="comment">* 일반적으로 함수는 선언하고 필요할 때마다 호출하나, 한 번만 실행하는 함수는 함수 정의와 실행을 동시에 => 즉시 실행 함수</p>
+  <p class="comment">* 사용법: (function(){코드}()) </p>
+  <p class="comment">* 함수 전체를 소괄호 ()로 감싸서 함수 표현식을 만들고, 그 뒤에 ()를 붙어 즉시 실행하도록 함</p>
+
+  <script>
+      (function () {
+        let userName = prompt("이름을 입력하세요.")
+        document.write(`<p>[즉시 함수 실행 결과] 안녕하세요? <span class="accent">${userName}</span>님!</p>`)
+      }())
+  </script>
+
+  <!-- =============================================== -->
+  <h1>p.577) 매개변수가 있는 즉시 실행 함수 사용하기</h1>
+  <p class="comment">* 선언하는 부분 끝에 함수를 실행하는 인수를 넣어줌 => (function(){코드}<span class="accent">(인수, 인수)</span>)</p >
+
+    <script>
+        (function (a, b) {
+          sum = a + b
+        }(100, 200))
+
+      document.write(`<p>[즉시실행함수 실행 결과] ${sum}</p>`)
+    </script>
+
+</body>
+
+</html>

@@ -10,7 +10,8 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			align-items: center;
+			align-items: left;
+			padding-left: 50px;
 			height: 100vh;
 			font-size: 1.2em;
 		}
@@ -18,25 +19,31 @@
 </head>
 
 <body>
+	
 	<!-- p.571) Do it! 매개변수를 사용한 함수 선언하기 및 호출하기 -->
 	<script>
+		document.writeln(`<h1 style="color:blue;"> p.571) 매개변수를 사용한 함수 선언하기 및 호출하기</h1><br>`)
 		function addNumber(num1, num2) {
 			let sum = num1 + num2
 			return sum // 결과값을 함수 밖에서 사용하려면 다음에 넘겨줄 값(sum) 지정
 		}
 
 		let result = addNumber(2, 3) //2, 3: 인수(arguement)
-		document.write(`두 수를 더한 값: ${result}`)
+		document.writeln(`두 수를 더한 값: ${result}<br>`)
 	</script>
+
 
 	<!-- p.572) Do it! 매개변수 기본값 사용하기 -->
 	<script>
+		document.writeln(`<h1 style="color:blue;"> p.572) 매개변수 기본값 사용하기</h1><br>`)
+
 		function multiple(a, b = 5, c = 10) { //기본값 지정
 			return a * b + c
 		}
-		multiple(5, 10, 20) // a = 5, b = 10, c = 20
-		multiple(10, 20)    // a = 10, b = 20, c = 10(기본값)
-		multiple(30)        // a = 30, b = 5(기본값), c = 10(기본값)
+
+		document.write(`a * b + c [multiple(5, 10, 20) 함수값] <p style="color:red;">${multiple(5, 10, 20)}</p>`) // a = 5, b = 10, c = 20
+		document.write(`a * b + c [multiple(10, 20) 함수값] <p style="color:red;">${multiple(10, 20)}</p>`)       // a = 10, b = 20, c = 10(기본값)
+		document.write(`a * b + c [multiple(30) 함수값] <p style="color:red;">${multiple(30)}</p>`)               // a = 30, b = 5(기본값), c = 10(기본값)
 	</script>
 </body>
 

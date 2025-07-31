@@ -44,13 +44,13 @@
 		<script>
 			// Do it! 구구단, 2단에서 4단까지만 표시하기
 			for (let i = 2; i <= 9; i++) {
-				document.write(`<div class="times3">`);
-				document.write(`<h3>${i}단</h3>`);
+				document.writeln(`<div class="times3">`);
+				document.writeln(`<h3>${i}단</h3>`);
 				for (let j = 1; j <= 9; j++) {
 					document.write(`${i} X ${j} = ${i * j} <br>`);
 				}
 				document.write(`</div>`);
-				
+
 				// 4단에서 브레이크
 				if (i === 4) {
 					break
@@ -58,6 +58,24 @@
 			}
 		</script>
 	</div>
+
+	<!-- 3의 배수만 표시하기 -->
+	<!-- document.writeln(): 자동 줄바꿈 => 문자열 뒤에 줄바꿈(newline, \n) 문자를 자동으로 추가 -->
+
+	<div class="container">
+		<script>
+			for (let i = 2; i < 10; i++) {
+				if (i % 3 !== 0) continue //3의 배수가 아니면 다음 반복으로 건너 뛰고, 3의 배수일 때만 아래 코드 실행
+				document.writeln(`<div class="times4">`)
+				document.writeln(`<h3>${i}단</h3>`)
+				for (let j = 1; j < 10; j++) {
+					document.write(`${i} X ${j} = ${i * j} <br>`)
+				}
+				document.write('</div>')
+			}
+		</script>
+	</div>
+
 </body>
 
 </html>

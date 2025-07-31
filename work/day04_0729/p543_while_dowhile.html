@@ -9,14 +9,28 @@
     body {
       font-size: 2em;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
+
+    p {
+      font-size: 10pt;
+      background: lightgreen;
+    }
+
   </style>
 </head>
 
 <body>
+  <div>
+    <p>두 입력창에 모두 별을 0으로 표시하면</p>
+    <p>[while]첫 번째 별은 안 나오고,</p>
+    <p>[do ~ while]두 번째 별만 나옴</p><br>
+
+  </div>
+
   <script>
     // Do it! while문을 사용해 별 표시하기
     // 조건부터 체크
@@ -24,28 +38,28 @@
     let output1 = stars
 
     document.write("[첫 번째 별]<br>")
-    while (stars > 0) {      
-      document.write("*")      
+    while (stars > 0) {
+      document.write("*")
       console.log(stars)
       stars--
-    }  
+    }
     document.write("<br>")
-    
+
 
     // Do it! do...while문을 사용해 별 표시하기
     // 명령을 일단 실행한 후 조건 체크
-    let stars_new = parseInt(prompt("별을 몇 개 표시할까요?"))    
+    let stars_new = parseInt(prompt("별을 몇 개 표시할까요?"))
     document.write("[두 번째 별]<br>")
     let output2 = stars_new
-    
+
     do {
       document.write("*")
       console.log(stars_new)
       stars_new--
-    } while (stars_new > 0)   
-    
+    } while (stars_new > 0)
+
     alert(`첫 번째 별 출력 결과는" ${output1}, 두 번째 별 출력 결과 ${output2}`)
-   
+
 
   </script>
 </body>
