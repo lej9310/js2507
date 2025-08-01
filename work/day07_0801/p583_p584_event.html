@@ -23,12 +23,15 @@
 	</ul>
 	</div>
 
-	<h2>p.583) HTML 요소에 이벤트 처리 함수 연결하기</h2>	
+
+	<h2>p.583~p.584) HTML 요소에 이벤트 처리 함수 연결하기</h2>
+	<p>아래 박스 안의 색을 클릭하면 아래 박스 색이 변함</p>
 	<ul>
-		<li><a href="#">Green</a></li>
-		<li><a href="#">Orange</a></li>
-		<li><a href="#">Purple</a></li>
+		<li><a href="#" onclick="changeBg('Green')">Green</a></li>
+		<li><a href="#" onclick="changeBg('Orange')">Orange</a></li>
+		<li><a href="#" onclick="changeBg('Purple')">Purple</a></li>
 	</ul>
+	<p>*** changeBg(color): 웹 요소의 배경색을 바꿈</p>
 	<div id="result"></div>
 
 	<script>

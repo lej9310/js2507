@@ -14,29 +14,61 @@
 			height: 100vh;
 			font-size: 1.2em;
 		}
+
+		.title {
+			background: lightcoral;
+		}
 	</style>
 </head>
 
 <body>
 	<script>
-		// Do it! 함수를 사용하지 않고 2와 3 더하기
+		// Do it! 함수를 사용하지 않고 2와 3 더하기 ==================
 		let num1 = 2
 		let num2 = 3
 		let sum = num1 + num2
-		alert(`1. 함수 미사용 결과값: ${sum}`)
 
-		// Do it! 함수를 사용하여 2와 3 더하기
+		// alert(`1. 함수 미사용 결과값: ${sum}`)
+		console.log(`1. 함수 미사용 결과값: ${sum}`)
+		document.write(`<p class="title">1. (함수를 사용하지 않고 2와 3 더하기) sum 결과값 : ${sum}</p>`)
+		document.write(`let num1 = 2<br>`)
+		document.write(`let num2 = 3<br>`)
+		document.write(`let sum = num1 + num2`)
+	</script>
+
+
+	<script>
+		// Do it! 함수를 사용하여 2와 3 더하기 ==================
+		let mySum
 		function addNumber() {
-			let num1 = 2
-			let num2 = 3
-			let sum = num1 + num2
-			alert(`2. 함수 사용 결과값: ${sum}`)
+			let num3 = 2
+			let num4 = 3
+			let sum2 = num3 + num4
+			mySum = sum2
+
+			// alert(`2. 함수 사용 결과값: ${sum2}`)
+			console.log(`2. 함수 사용 결과값: ${sum2}`)
+			document.write(`<p class="title">2. (함수를 사용하여 2와 3 더하기) sum2 결과값: ${sum2}</p>`)
 		}
-		
+
+		// 함수 call: 함수를 사용할 때 꼭 호출을 해줘야 함
 		// 함수 선언 위치는 상관없으므로 스크립트 코드 앞/뒤에 모아 놓고 필요할 때 호출
 		addNumber()
+		document.write(`let mySum<br>`)
+		document.write(`function addNumber() {<br>
+			let num3 = 2<br>
+			let num4 = 3<br>
+			let sum2 = num3 + num4<br>
+			mySum = sum2<br>
+			}`)
+
+		document.write(`<p class="title"> *함수 외부에서 let으로 선언한 변수 호출 (O)`)
+		document.write(`<p style = "color:blue;"> mySum 호출: ${mySum}</p>`)
+		document.write(`<p class="title"> *함수 내에서 let으로 선언한 변수 호출 (X) => 함수 내 블록 범위 내에만 사용`)
+		document.write(`<p style = "color:blue;"> num3 호출: ${num3}</p>`)
 
 	</script>
+
 </body>
 
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>p.585-p.586 연습문제</title>
+	<style>
+		body {
+			width: 90%;
+			margin: 0 auto;
+			font-size: 1.2rem;
+		}
+
+		h1 {
+			background: darkred;
+			color: white;
+			font-size: 1.8rem;
+			text-align: center;
+		}
+
+		p {
+			font-weight: bold;
+		}
+
+		span {
+			color: blue;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- p.585 연습문제1 -->
+	<!-- 두 수의 값이 같으면 곱하고 다르면 더하는 sumMulti() 함수 작성 -->
+	<!-- 두 수의 값으로 5, 10 & 10, 10 실행하여 결과값을 콘솔 창에 표시-->
+	<script>
+		function sumMulti(num1, num2) {
+			if (num1 === num2) {
+				console.log("두 수의 값이 같아 곱하였습니다.")
+				return num1 * num2
+			} else {
+				console.log("두 수의 값이 달라 더하였습니다.")
+				return num1 + num2
+			}
+		}
+
+		let result1 = sumMulti(5, 10)
+		console.log(result1)
+		let result2 = sumMulti(10, 10)
+		console.log(result2)
+
+		document.writeln(`<h1>두 수의 값이 같으면 곱하고, 다르면 더하는 sumMulti() 함수 작성</h1>`)
+		document.writeln(`<p>[sumMulti(5, 10) 결과값] <span>${result1}</span></p>`)
+		document.writeln(`<p>[sumMulti(10, 10) 결과값] <span>${result2}</span></p>`)
+
+	</script>
+
+
+	<!-- p.586 연습문제2 -->
+	<h1>창에서 두 수를 입력받아 크기 비교 => 더 큰 숫자를 알림창에 표시</h1>
+
+	<script>
+		// 1. 프롬프트 창에서 입력받은 두 수를 각각 num1, num2 변수에 저장
+		// * prompt() 반환값을 바로 parseInt() 하지 말고, 일단 변수에 저장해서 null 여부(취소 체크)를 먼저 판단
+		let num1 = prompt("첫 번째 숫자를 입력하세요.")
+		let num2 = prompt("두 번째 숫자를 입력하세요.")
+
+		if (num1 === null || num2 === null) {
+			alert("입력이 취소되었습니다.")
+		} else {
+
+			// null(입력 취소)이 아닌 경우에 parseInt()로 재선언
+			num1 = parseInt(num1)
+			num2 = parseInt(num2)
+			
+			// 입력창에 숫자가 아닌 값을 입력하거나 빈칸을 입력한 경우
+			if (isNaN(num1) || isNaN(num2)) {
+				alert("입력창에 숫자를 입력하세요.")
+			} else {
+				myFunc(num1, num2) //함수 정의 이전에 호출해도 실행됨
+
+				// 2. 함수를 선언할 때 함수명은 자유롭게 지정. 매개변수는 2개 사용
+				function myFunc(num1, num2) {
+					// 3. if~else문과 비교 연산자 ===를 사용
+					if (num1 === num2) {
+						// 4. 두 수가 같을 경우, "같습니다."를 표시
+						alert(`두 수는 같습니다. (${num1} = ${num1})`)
+						document.write(`두 수는 같습니다. (${num1} = ${num1})`)
+					} else if (num1 > num2) {
+						alert(`${num1}이(가) ${num2}보다 큽니다.`)
+						document.write(`${num1}이(가) ${num2}보다 큽니다.`)
+					} else {
+						alert(`${num2}이(가) ${num1}보다 큽니다.`)
+						document.write(`${num2}이(가) ${num1}보다 큽니다.`)
+					}
+				}
+
+
+			}
+		}
+
+		// if (isNaN(parseInt("a")) || isNaN(parseInt("a"))) {console.log("TRUE")} else {console.log("FALSE")}
+	</script>
+
+</body>
+
+</html>
