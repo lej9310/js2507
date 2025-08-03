@@ -39,21 +39,23 @@
 
 <body>
   <p class="title">p.578) <span class="para">매개변수가 없는</span> 화살표 함수</p>
-
+  
   <script>
     const hi1 = function () {
-      return "안녕하세요?";
+      return "안녕하세요?"
     }
 
     const hi2 = () => {
-      return "안녕하세요?";
+      return "안녕하세요?"
     }
 
     const hi3 = () => "안녕하세요?"
 
     document.write(`<p>[매개변수가 없는 함수] <span class="accent">${hi1}</span></p>`)
     document.write(`<p>[매개변수가 없는 화살표 함수] <span class="accent">${hi2}</span></p>`)
-    document.write(`<p>[매개변수가 없는 화살표 함수(중괄호 생략)] <span class="accent">${hi3}</span></p>`)
+    document.write(`<p>[매개변수가 없는 화살표 함수(중괄호{} 생략)] <span class="accent">${hi3}</span></p>`)
+
+    console.log(typeof hi1) //function 
   </script>
 
 
@@ -76,8 +78,8 @@
   
   <script>    
     let sum1 = function (a, b) {
-      return a + b;
-    };
+      return a + b
+    }
 
     let sum2 = (a, b) => a + b
 

@@ -9,6 +9,7 @@
 </head>
 
 <body>
+	<!-- ===================================================================== -->
 	<h1>이벤트 & 이벤트 처리기</h1>
 	<p class="comment">*마우스 이벤트: 버튼/휠버튼 조작 click, dbclick, mousedown, mousemove, mouseover, mouseout, mouseup<br>*키보드
 		이벤트: 특정 키 조작 keydown, keypress, keyup<br>*문서 로딩 이벤트: abort, error, load, resize, scroll, unload<br>*폼 이벤트: blur,
@@ -23,23 +24,58 @@
 	</ul>
 	</div>
 
-
+	<!-- ===================================================================== -->
 	<h2>p.583~p.584) HTML 요소에 이벤트 처리 함수 연결하기</h2>
-	<p>아래 박스 안의 색을 클릭하면 아래 박스 색이 변함</p>
+	<p class="comment">*changeBg(color): 웹 요소의 배경색을 바꿈.</p>
 	<ul>
 		<li><a href="#" onclick="changeBg('Green')">Green</a></li>
 		<li><a href="#" onclick="changeBg('Orange')">Orange</a></li>
 		<li><a href="#" onclick="changeBg('Purple')">Purple</a></li>
 	</ul>
-	<p>*** changeBg(color): 웹 요소의 배경색을 바꿈</p>
-	<div id="result"></div>
+	<div id="result">박스 색 변경</div>
 
 	<script>
 		function changeBg(color) {
-			let result = document.querySelector('#result');
-			result.style.backgroundColor = color;
+			let result = document.querySelector('#result')
+			result.style.backgroundColor = color
 		}
 	</script>
+
+	<!-- ===================================================================== -->
+	<h2>글자색 바꾸기</h2>
+	
+	<button id="change1">change1</button>
+	<button id="change2">change2</button>
+	<button id="change3">change3</button>
+	<p class="myText1 myText2 myText3">Reprehenderit tempor do quis sunt eu et exercitation deserunt. Laboris adipisicing est sint aliquip
+		nulla pariatur velit irure elit qui id. Dolore aliquip dolore eu ut irure sint Lorem reprehenderit velit. Duis
+		veniam irure cillum anim excepteur culpa pariatur sunt esse. Eu nulla commodo velit ex id dolore incididunt
+		mollit incididunt nisi labore culpa qui ea. Commodo veniam veniam in ipsum ad minim occaecat qui pariatur
+		adipisicing laborum quis.</p>
+
+	<script>
+		// 방법 1 : 웹 요소를 변수로 지정 & 미리 만든 함수 사용
+		var changeBttn = document.querySelector("#change1") // 버튼 선택
+
+		changeBttn.onclick = changeColor //버튼을 누리면 글자색 변경 함수 실행
+
+		function changeColor() {
+			document.querySelector(".myText1").style.color = "#f00"
+		}
+
+		// 방법 2 : 웹 요소를 따로 변수로 만들지 않고 사용
+		document.querySelector("#change2").onclick = changeColor2
+
+		function changeColor2() {
+			document.querySelector(".myText2").style.color = "blue"
+		}
+
+		// 방법 3 : 직접 함수를 선언
+		document.querySelector("#change3").onclick = function () {
+			document.querySelector(".myText3").style.color = "darkgreen"
+		}
+	</script>
+
 </body>
 
 </html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W3 Function Arrows </title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            margin: 20px auto;
+            font-size: 1em;
+        }
+
+        div {
+            background: lightgoldenrodyellow;
+            margin: 10px;
+        }
+
+        p {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h3>[예제1]</h3>
+        <script>
+            myFunc = (a, b) => a * b
+            let result = myFunc(4, 5)
+
+            document.write(`myFunc = (a, b) => a * b<br>
+            let result = myFunc(4, 5)<br>`)
+            document.write(`<p>결과값: ${result}</p>`)
+        </script>
+    </div>
+
+    <div>
+        <h3>[예제2]</h3>
+        <script>
+            let hello = function () {
+                return "Hello World!"
+            }
+            document.write(`let hello = function () {
+                return "Hello World!"
+            }<br>`)
+
+            let hello1 = () => { return "Hello World!" }
+            document.write(`let hello1 = () => { return "Hello World!" }<br>`)
+
+            let hello2 = () => "Hello World!"
+            document.write(`let hello2 = () => "Hello World!"<br>`)
+
+            document.write(`<p>결과값: ${hello()}</p>`)
+        </script>
+    </div>
+
+    <div>
+        <h3>[예제3]</h3>
+        <script>
+            document.write(`let hello3 = function (val) { return "Hello " + val }<br>`)
+
+            // let hello3 = (val) => "Hello " + val
+            document.write(`let hello3 = (val) => "Hello3 " + val`)
+
+            document.write(`<p>결과값: ${hello3("Universe!")}</p>`)
+        </script>
+    </div>
+
+    <div>
+        <h3>[예제4]</h3>
+        <button id="btn">Hello World!</button>
+        <p id="demo">결과값: </p>
+
+        <script>
+            let hello4 = function () {
+                // this를 'demo'에 더해라
+                document.getElementById('demo').innerHTML += this.textContent // this: 이벤트가 호출될 때 어떤 객체를 가리키냐
+            }
+
+            // document.getElementById("id"): id="btn"과 일치하는 요소 한 개를 찾아서 반환해라
+            // .addEventListener("이벤트 종류", 실행할 함수) => 클릭하면 hello4 함수를 실행해라
+            document.getElementById("btn").addEventListener("click", hello4)
+
+            document.write(`let hello4 = function () {<br>
+                document.getElementById('demo').innerHTML += this.textContent<br>
+            }<br>`)
+
+            document.write(`<br>let hello4 = () => { document.getElementById('demo').innerHTML += this.textContent }`)
+        </script>
+    </div>
+
+    <div>
+        <h3>[예제5]</h3>
+        <p id="demo5">결과값: </p>
+
+        <script>
+            document.write(`var x = function (x, y) {<br>
+                return x * y<br>
+            }<br>`)
+
+
+            document.write(`<br>const x = (x, y) => {return x * y}<br>`)
+
+            const x = (x, y) => x * y
+            document.getElementById("demo5").innerHTML += x(5, 5)   // +=이 아니라 그냥 =만 쓰면 기존의 내용은 지워지고 우항의 내용으로 완전히 교체됨
+
+            document.write(`<br>const x = (x, y) => x * y`)
+        </script>
+    </div>
+</body>
+
+</html>

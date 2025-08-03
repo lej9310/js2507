@@ -1,0 +1,38 @@
+body {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  height: 90%;
+  width: 95%;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+
+hr {
+  width: 95%;
+}
+
+h1 {
+  display: block;
+  width: 95%;
+  font-size: 1.6rem;
+  background: lightgreen;
+  text-align: center;
+}
+
+span {
+  color: red;
+}
+
+.comment {
+  width: 95%;
+  color: darkred;
+  text-align: left;
+  background-color: rgba(240, 128, 128, 0.3);
+}
+
+div {  
+  width: 95%;
+  background: rgba(211, 211, 211, 0.4);  
+}

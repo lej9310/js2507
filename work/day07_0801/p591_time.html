@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What time is it?</title>
+  <link rel="stylesheet" href="./css/myStyle.css">
+</head>
+
+<body>
+  <p class="comment">*장 객체: 자주 사용하는 요소를 미리 객체로 정의<br> *인스턴스: 미리 만들어져 있는 객체를 복제해서 새로 만든 객체<br> *new 예약어: 객체의 인스턴스 만들 때 사용
+  </p>
+
+  <!-- ============================================================= -->
+  <h1>p.591) Date 객체를 사용하여 현재 날짜와 시간을 표시하기</h1>
+
+  <div>
+    <p>let now = new Date()</p>
+    <p class="output"><span>[결과값]</span> </p>
+
+    <script>
+      // 인스턴스 객체 만들고, 변수에 할당
+      let now = new Date()
+
+      document.querySelector('.output').innerHTML += "현재 시각은 " + now + "입니다."    
+    </script>
+  </div>
+
+  <!-- ============================================================= -->
+  <h1>p.592)toLocaleString() 메서드를 사용하여 로컬 형식으로 표시하기</h1>
+
+  <div>
+    <p>document.write(`현재 시각은 ${now.toLocaleString()}`)</p>
+    <p class="output1"><span>[결과값]</span> </p>
+
+    <script>
+      document.querySelector('.output1').innerHTML += "현재 시각은" + now.toLocaleDateString + "입니다."
+    </script>
+  </div>
+</body>
+
+</html>
