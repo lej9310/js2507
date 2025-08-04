@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_HTML DOM Forms</title>
+    <link rel="stylesheet" href="./css/myStyle.css">
+</head>
+
+<body>
+    <h1>JS HTML DOM - Forms</h1>
+
+    <div>
+        <h2>[예제1.] JS Form validation</h2>
+        <p>폼 필드(fname)가 빈칸 => alert 메세지를 띄우기 & false값이 반환되면 제출 막기</p>
+
+        <form id="myForm" action="#" onsubmit="return validateForm()" method="post">
+            이름: <input type="text" name="fname"><br>
+            성 : <input type="text" name="lname"><br><br>
+            <input type="submit" value="제출">
+        </form>
+
+        <script>
+            function validateForm() {
+                let f = document.forms["myForm"]["fname"].value
+                let l = document.forms["myForm"]["lname"].value
+                if (f == "" || l == "") {
+                    alert("이름을 필수로 작성하세요.")
+                    return false
+                }
+            }
+        </script>
+    </div>
+
+    <div>
+        <h2>[예제2.] JS는 숫자형 입력값을 검증할 수 있다.</h2>
+        <p>1과 10 사이의 값을 입력하세요.</p>
+        <input id="num">
+        <button type="button" onclick="myFunc()">제출</button>
+        <hr>
+        <p class="result" id="result1">[결과]</p>
+
+        <script>
+            function myFunc() {
+                let n = document.getElementById("num").value
+                let text = ""
+                // 입력값이 없거나 1~10 값이 아니라면
+                if (isNaN(n) || n < 1 || n > 10)
+                    text = "입력값이 유효하지 않습니다."
+                else { 
+                    text = "입력값이 유효합니다."
+                }
+                document.getElementById("result1").innerHTML = "[결과] " + text
+            }
+        </script>
+    </div>
+
+    <div>
+        <h2></h2>
+        <p></p>
+        <hr>
+        <p class="result"  id="result3">[결과]</p>
+
+        <script>
+
+        </script>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_HTML DOM (Document Object Model) Elements</title>
+    <link rel="stylesheet" href="./css/myStyle.css">
+</head>
+
+<body>
+    <h1>JS HTML DOM</h1>
+
+    <div>
+        <h2>getElementsByTagName()</h2>
+        <p>문단 1. Tag Name으로 HTML 요소 찾기</p>
+        <p>문단 2. Tag Name으로 HTML 요소 찾기</p>
+        <hr>
+        <p id="result1">[결과]</p>
+
+        <script>
+            const elmt = document.getElementsByTagName("p")
+            document.getElementById("result1").innerHTML = "첫 번째 문단의 텍스트는 " + elmt[0].innerHTML + "입니다."
+        </script>
+
+
+    </div>
+
+    <div>
+        <h2>querySelectorAll()</h2>
+        <p class="comment">to find all HTML elements that match a specified CSS selector</p>
+
+        <p>문단1</p>
+        <p class="intro">문단2 class="intro"</p>
+        <p class="intro">문단3 class="intro"</p>
+        <hr>
+        <p id="result2">[첫 번째 결과] </p>
+        <p id="result3">[두 번째 결과] </p>
+
+        <script>
+            const h2 = document.querySelectorAll("h2")
+            document.getElementById("result2").innerHTML = "h2 태그 중 두 번째는 " + h2[1].innerHTML
+
+            const x = document.querySelectorAll("p.intro")
+            document.getElementById("result3").innerHTML = "class='intro'을 갖는 첫 번째 문단은 " + x[0].innerHTML
+
+            const p = document.querySelectorAll("p")
+            p[4].style.backgroundColor = "lightblue"
+            p[5].style.backgroundColor = "lightsalmon"
+        </script>
+    </div>
+
+    <div>
+        <h2>폼 안의 모든 요소에 접근 & for문 사용</h2>
+        <p><span>document.forms[]</span>을 이용하여 HTML 요소 찾기</p>
+        <form id="frm1" action="#">
+            이름<small>(First name)</small>: <input type="text" name="fname" value="은정"><br>
+            성<small>(Last name)</small>: <input type="text" name="lname" value="이"><br><br>
+            <input type="submit" value="제출">
+        </form>
+
+        <p>*폼 안에 있는 각 요소의 값은 다음과 같습니다:</p>
+        <hr>
+        <p id="result4"></p>
+        <p id="result5"></p>
+
+        <script>
+            const f = document.forms["frm1"]            
+
+            let text = ""
+            for (let i = 0; i < f.length; i++) {
+                // 누적
+                text += "폼 안의 요소" + (i + 1) + " : "+ f.elements[i].value + "<br>"                
+            }
+
+            document.getElementById("result4").innerHTML = text
+
+        </script>
+    </div>
+
+    <div>
+        <h2>속성값 변경</h2>
+        <p><span>.src</span>로 이미지 변경</p>
+        <p>document.getElementById("image")<span>.src</span> = "./image/landscape.jpg"</p>
+
+        <img id="image" src="./image/smiley.gif" width="160px" height="120px">
+        
+        <script>
+            document.getElementById("image").src = "./image/landscape.jpg"
+        </script>
+
+    </div>
+</body>
+
+</html>

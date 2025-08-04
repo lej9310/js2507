@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>독서 챌린지 - Date 객체 연습하기</title>
+  <link rel="stylesheet" href="./css/p603_days.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>책 읽기</h1>
+    <p><span class="accent" id="result"></span>일 연속으로 <br> 책 읽기를 달성했군요.</p>
+    <p>축하합니다!</p>
+  </div>
+
+  <script>
+    let now = new Date() //오늘 날짜 객체 지정
+    console.log(now)
+    let day1 = new Date("2025-08-01") // 시작 날짜 객체 지정
+    console.log(day1)
+
+    let toNow = now.getTime()   // 오늘까지 지난 시간
+    console.log(toNow)
+    let toDay1 = day1.getTime() // 첫 날까지 지난 시간
+    console.log(toDay1)
+    let passDT = toNow - toDay1 // 첫 날부터 오늘까지 지난 시간
+    console.log(passDT)
+
+    passDT = Math.round(passDT / (1000 * 60 * 60 * 24))
+
+    document.querySelector('#result').innerText = passDT
+
+  </script>
+</body>
+
+</html>

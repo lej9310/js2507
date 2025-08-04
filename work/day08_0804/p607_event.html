@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>당첨자 발표 - Math 객체 </title>
+  <link rel="stylesheet" href="./css/p607_event.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>당첨자 발표</h1>
+    <script>
+      let seed = prompt("전체 응모자 수")
+      let picked = Math.floor((Math.random() * seed) + 1) // floor():소수점이하 버리기
+      
+      document.write(`<p>전체 응모자 수: ${seed}명</p>`)
+      document.write(`<p>당첨자: ${picked}번</p>`)
+    </script>
+  </div>
+
+</body>
+
+</html>
