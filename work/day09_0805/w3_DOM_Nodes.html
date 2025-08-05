@@ -140,7 +140,7 @@ child3.parentNode.removeChild(child3) <span>=> 자식 요소의 부모 노드 �
     <div>
         <h2>HTML 요소 교체 - <span>.replaceChild()</span></h2>
 
-        <button onclick="myFunc4()">문단 1. 제거</button>
+        <button onclick="myFunc4()">문단 교체</button>
 
         <div id="div5">
             <p id="p9">문단 1.</p>
@@ -148,13 +148,13 @@ child3.parentNode.removeChild(child3) <span>=> 자식 요소의 부모 노드 �
         </div>
 
         <script>
-            myFunc4() {
+            function myFunc4() {
                 const parent4 = document.getElementById("div5")
                 const child4 = document.getElementById("p9")
-                const para4 = document.createElement("p9")
+                const para4 = document.createElement("p")
                 const node4 = document.createTextNode("[NEW!]] 문단 3.")
-                para.appendChild(node);
-                parent.replaceChild(para, child)
+                para.appendChild(node4);
+                parent.replaceChild(para4, child4)
             }
 
         </script>
