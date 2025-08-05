@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[w3] JS HTML DOM Elements (Nodes)</title>
+    <link rel="stylesheet" href="./css/myStyle.css">
+</head>
+
+<body>
+    <h1>새로운 HTML 요소 만들기</h1>
+
+    <div>
+        <h2>노드 생성 - <span>.appendChild()</span></h2>
+        <p class="comment">* HTML DOM에 새로운 요소 추가하려면, 먼저 노드 만든 다음 => 기존 요소에 추가<br>
+            * appendChild(): 새 요소를 부모의 마지막 자식으로 추가</p>
+
+        <pre>
+const para = document.createElement("p") <span>=> p 태그 생성</span>
+const node = document.createTextNode("[NEW] 문단 3.") <span>=> 텍스트 노드 생성</span>
+para.appendChild(node) <span>=> 텍스트 노드를 p 태그에 추가</span>
+const elmt = document.getElementById("p2") <span>=> 기존 요소 찾기</span>
+elmt.appendChild(para) <span>=> 기존 요소에 새 요소 추가</span>
+        </pre>
+
+        <div id="div1">
+            <p id="p1">문단 1.</p>
+            <p id="p2">문단 2.</p>
+        </div>
+
+        <script>
+            const para = document.createElement("p")
+            const node = document.createTextNode(`[NEW!] 문단 3.`)
+            para.appendChild(node)
+
+            const elmt = document.getElementById("div1")
+            elmt.appendChild(para)
+        </script>
+    </div>
+
+    <!-- ======================================= -->
+    <div>
+        <h2>원하는 위치에 새 요소 추가 - <span>.insertBefore()</span></h2>
+        <pre>
+const para2 = document.createElement("p") <span>=> p 태그 생성</span>
+const node2 = document.createTextNode("[NEW!] 문단 3.") <span>=> 노드 생성</span>
+para2.appendChild(node2) <span>=> p 태그에 노드 추가</span>
+
+const elmt2 = document.getElementById("div2") <span>=> 원위치 찾기(div2)</span>
+const child2 = document.getElementById("p3") <span>=> 원하는 위치 찾기(p3)</span>
+elmt2.insertBefore(para2, child2) <span>=> 원하는 위치 전에 새요소 추가</span>
+        </pre>
+
+        <div id="div2">
+            <p id="p3">문단 1.</p>
+            <p id="p4">문단 2.</p>
+        </div>
+
+        <script>
+            const para2 = document.createElement("p")
+            const node2 = document.createTextNode("[NEW!] 문단 3.")
+            para2.appendChild(node2)
+
+            const elmt2 = document.getElementById("div2")
+            const child2 = document.getElementById("p3")
+            elmt2.insertBefore(para2, child2)
+        </script>
+    </div>
+
+    <!-- ======================================= -->
+    <div>
+        <h2>기존 HTML 요소 제거- <span>.remove()</span></h2>
+        <pre>
+function myFunc() {
+    document.getElementById("p5").remove()
+}
+        </pre>
+
+        <button onclick="myFunc()">문단 1. 제거</button>
+
+        <div id="div3">
+            <p id="p5">문단 1.</p>
+            <p id="p6">문단 2.</p>
+        </div>
+
+        <script>
+            function myFunc() {
+                document.getElementById("p5").remove()
+            }
+        </script>
+    </div>
+
+    <!-- ======================================= -->
+    <div>
+        <h2>자식 노드 제거- <span>.removeChild()</span></h2>
+
+        <pre>
+const parent = document.getElementById("div4") <span>=> 부모 노드 찾기</span>
+const child = document.getElementById("p7"); <span>=> id="p7"인 자식 요소 찾기</span>
+parent.removeChild(child); <span>=> 부모 노드에서 자식 요소 제거</span>
+        </pre>
+
+        <button onclick="myFunc2()">문단 1. 제거</button>
+
+        <div id="div4">
+            <p id="p7">문단 1.</p>
+            <p id="p8">문단 2.</p>
+        </div>
+
+        <script>
+            function myFunc2() {
+                const parent = document.getElementById("div4")
+                const child = document.getElementById("p7")
+                parent.removeChild(child)
+            }
+        </script>
+
+        <hr>
+
+        <!-- ========================================= -->
+        <h2>자식 노드 제거- <span>.parentNode.removeChild()</span></h2>
+        <p class="comment">* 부모 노드에서 자식 노드 찾아 제거</p>
+        <pre>
+const child3 = document.getElementById("p7") <span>=> 자식 요소 찾기</span>
+child3.parentNode.removeChild(child3) <span>=> 자식 요소의 부모 노드 찾아 자식 제거</span>
+        </pre>
+
+        <button onclick="myFunc3()">문단 1. 제거</button>
+
+        <script>
+            function myFunc3() {
+                const child3 = document.getElementById("p7")
+                child3.parentNode.removeChild(child3)
+            }
+        </script>
+    </div>
+
+    <!-- ======================================= -->
+    <div>
+        <h2>HTML 요소 교체 - <span>.replaceChild()</span></h2>
+
+        <button onclick="myFunc4()">문단 1. 제거</button>
+
+        <div id="div5">
+            <p id="p9">문단 1.</p>
+            <p id="p10">문단 2.</p>
+        </div>
+
+        <script>
+            myFunc4() {
+                const parent4 = document.getElementById("div5")
+                const child4 = document.getElementById("p9")
+                const para4 = document.createElement("p9")
+                const node4 = document.createTextNode("[NEW!]] 문단 3.")
+                para.appendChild(node);
+                parent.replaceChild(para, child)
+            }
+
+        </script>
+    </div>
+
+</body>
+
+</html>

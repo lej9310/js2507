@@ -15,6 +15,7 @@ div {
   margin: 5px 0;
 }
 
+
 hr {
   width: 95%;
 }
@@ -32,7 +33,10 @@ h2 {
   text-decoration: underline;
 }
 
-pre {  
+pre {
+  width: 95%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.8);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -44,7 +48,7 @@ span {
   width: 100%;
   color: darkred;
   text-align: left;
-  background-color: rgba(240, 128, 128, 0.3);
+  background: rgba(240, 128, 128, 0.3);
 }
 
 .result {
@@ -61,3 +65,5 @@ span {
   text-align: center;
   font-weight: bolder;
 }
+
+
