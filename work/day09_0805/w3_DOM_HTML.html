@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS HTML DOM - Changing HTML</title>
+    <link rel="stylesheet" href="./css/myStyle.css">
+</head>
+
+<body>
+    <h1>JS-HTML 변경</h1>
+
+    <div>
+        <h2>[예제 1.] HTML 항목 변경</h2>
+        <p class="comment">* document.getElementById("").innerHTML = ""</p>
+        <p> document.getElementById('p1').innerHTML = "New text!"</p>
+
+        <p id="p1"><span>[결과]</span> </p>
+
+        <script>
+            document.getElementById('p1').innerHTML += "New text!"
+        </script>
+
+        <hr>
+
+        <p>const newTxt = document.getElementById("id01")<br>
+            newTxt.innerHTML = "New text!!"</p>
+
+        <span>
+            <p id="id01">old text</p>
+        </span>
+
+        <script>
+            const newTxt = document.getElementById("id01")
+            newTxt.innerHTML = "New text!!"
+        </script>
+    </div>
+
+
+    <!-- ===================================================== -->
+    <div>
+        <h2>[예제 2.] HTML 속성값 변경</h2>
+        <p class="comment">* <span>.src</span>로 이미지 변경</p>
+        <p>document.getElementById("image")<span>.src</span> = "./image/landscape.jpg"</p>
+
+        <img id="image" src="./image/smiley.gif" width="160px" height="120px">
+
+        <script>
+            document.getElementById("image").src = "./image/landscape.jpg"
+        </script>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <div>
+        <h2>[예제 3.] Dynamic HTML content</h2>
+        <p class="comment">*date() 사용</p>
+        <p>document.getElementById("result1").innerHTML += "Date : " + Date()</p>
+
+        <p id="result1"><span>[결과]</span> </p>
+
+        <script>
+            document.getElementById("result1").innerHTML += "Date : " + Date()
+        </script>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <div>
+        <h2>[예제 4.] document.write()</h2>
+        <p>write directly to the HTML output stream</p>
+        <p>document.write(Date())</p>
+
+        <script>
+            document.write(`<span>${Date()}</span>`)
+        </script>
+
+    </div>
+
+</body>
+
+</html>

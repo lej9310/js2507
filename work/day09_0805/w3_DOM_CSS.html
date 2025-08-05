@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[w3] DOM CSS</title>
+    <link rel="stylesheet" href="./css/myStyle.css">
+</head>
+
+<body>
+    <h1>JS HTML DOM - CSS 변경</h1>
+    <div>
+        <h2>HTML 요소의 스타일 변경</h2>
+        <p class="comment"> document.getElementById(id).style.property = new style </p>
+
+        <p id="p1">
+            <기존> HTML 요소의 스타일 변경
+        </p>
+        <p id="p2">
+            <변경> HTML 요소의 스타일 변경
+        </p>
+
+        <script>
+            document.getElementById("p2").style.color = "blue"
+            document.getElementById("p2").style.fontFamily = "Arial"
+        </script>
+    </div>
+
+    <!-- ============================================= -->
+    <div>
+        <h2>이벤트 사용</h2>
+
+        <p id="id1">클릭 버튼을 누르면 글씨 빤간색으로 변경</p>
+
+        <button type="button" onclick="document.getElementById('id1').style.color = 'red'">
+            클릭</button>
+    </div>
+</body>
+
+</html>

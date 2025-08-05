@@ -2,70 +2,106 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS_HTML DOM Forms</title>
-    <link rel="stylesheet" href="./css/myStyle.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS_HTML DOM Forms</title>
+  <link rel="stylesheet" href="./css/myStyle.css" />
 </head>
 
 <body>
-    <h1>JS HTML DOM - Forms</h1>
+  <h1>JS HTML DOM - Forms</h1>
 
-    <div>
-        <h2>[예제1.] JS Form validation</h2>
-        <p>폼 필드(fname)가 빈칸 => alert 메세지를 띄우기 & false값이 반환되면 제출 막기</p>
+  <!-- ===================================================== -->
+  <div>
+    <h2>[예제1.] JS Form validation</h2>
+    <p class="comment">
+      <b>[사용자가 입력한 값 예외처리]</b>
+      <br>*폼 필드(fname)가 빈칸 => alert 메세지를 띄우기 & false값이 반환되면
+      제출 막기
+    </p>
 
-        <form id="myForm" action="#" onsubmit="return validateForm()" method="post">
-            이름: <input type="text" name="fname"><br>
-            성 : <input type="text" name="lname"><br><br>
-            <input type="submit" value="제출">
-        </form>
+    <script>
+      function validateForm() {
+        let f = document.forms["myForm"]["fname"].value;
+        let l = document.forms["myForm"]["lname"].value;
+        if (f == "" || l == "") {
+          alert("이름을 필수로 작성하세요.");
+          return false; //action으로 가지 않음
+        }
+      }
+    </script>
 
-        <script>
-            function validateForm() {
-                let f = document.forms["myForm"]["fname"].value
-                let l = document.forms["myForm"]["lname"].value
-                if (f == "" || l == "") {
-                    alert("이름을 필수로 작성하세요.")
-                    return false
-                }
-            }
-        </script>
-    </div>
+    <!-- method="get"경로 변경 / http://127.0.0.1:5500/frm.html?fname=test-->
+    <form id="myForm" action="#" onsubmit="return validateForm()" method="post">
+      이름: <input type="text" name="fname" /><br />
+      성 : <input type="text" name="lname" /><br /><br />
+      <input type="submit" value="제출" />
+    </form>
+  </div>
 
-    <div>
-        <h2>[예제2.] JS는 숫자형 입력값을 검증할 수 있다.</h2>
-        <p>1과 10 사이의 값을 입력하세요.</p>
-        <input id="num">
-        <button type="button" onclick="myFunc()">제출</button>
-        <hr>
-        <p class="result" id="result1">[결과]</p>
+  <!-- ===================================================== -->
+  <div>
+    <h2>[예제2.] JS - 숫자형 입력값 검증 </h2>
+    <p class="comment">
+      * 입력값이 숫자가 아니거나, 1~10 값이 아니라면 "입력값이 유효하지 않습니다."
+    </p>
 
-        <script>
-            function myFunc() {
-                let n = document.getElementById("num").value
-                let text = ""
-                // 입력값이 없거나 1~10 값이 아니라면
-                if (isNaN(n) || n < 1 || n > 10)
-                    text = "입력값이 유효하지 않습니다."
-                else { 
-                    text = "입력값이 유효합니다."
-                }
-                document.getElementById("result1").innerHTML = "[결과] " + text
-            }
-        </script>
-    </div>
+    <p>1과 10 사이의 값을 입력하세요.</p>
 
-    <div>
-        <h2></h2>
-        <p></p>
-        <hr>
-        <p class="result"  id="result3">[결과]</p>
+    <input id="num" />
+    <button type="button" onclick="myFunc()">제출</button>
+    <hr />
+    <p class="result" id="result1">[결과]</p>
 
-        <script>
+    <script>
+      function myFunc() {
+        let n = document.getElementById("num").value;
+        let text = "";
+        if (isNaN(n) || n < 1 || n > 10) text = "입력값이 유효하지 않습니다.";
+        else {
+          text = "입력값이 유효합니다.";
+        }
+        document.getElementById("result1").innerHTML = text;
+      }
+    </script>
+  </div>
 
-        </script>
-    </div>
+  <!-- ===================================================== -->
+  <div>
+    <h2>[예제3.] 자동 HTML 폼 검증</h2>
+    <p class="comment">
+      <b>[HTML 입력 검증 속성]</b><br />
+      *disabled: 입력 요소 비활성화<br />
+      *max: 입력 요소의 최댓값<br />
+      *min: 입력 요소의 최솟값<br />
+      *pattern: 입력 요소의 값 패턴=> 특정 정규식과 일치하도록 제한<br />
+      *required: 필수 입력 필드<br />
+      *type: 입력 요소의 유형<br />
+
+      <br />
+      <b>[required 예시]</b>
+      <br />* 빈칸으로 제출하기 클릭하면, 브라우저가 자동으로 오류 메세지 표시
+    </p>
+
+    <form id="myForm2" action="#">
+      <input type="text" name="fname" required />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <!-- ===================================================== -->
+    <p class="comment">
+      <b>[pattern 예시]</b> 입력값 패턴이 맞지 않을 경우 기본 오류 메세지 띄우기<br>
+      * pattern="\d{3}" : 숫자 3자리만 입력 가능하도록 제한<br>
+      * pattern="\d{3}" : title="" => 입력값 패턴이 맞지 않을 경우 나타나는 기본 오류 메시지<br>
+    </p>
+
+    <form id="myForm3" action="#">
+      <label for="d3">세 자리 숫자를 입력하세요:</label>
+      <input type="text" id="d3" name="digit3" pattern="\d{3}" title="세 자리 숫자만 입력하세요">
+      <input type="submit" value="제출">
+    </form>
+
+  </div>
 
 </body>
 

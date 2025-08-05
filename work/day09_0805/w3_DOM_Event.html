@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[w3] JavaScript HTML DOM Events</title>
+
+    <link rel="stylesheet" href="./css/myStyle.css">
+</head>
+
+<body onload="ck_cookies()">
+    <h1>이벤트 반응</h1>
+
+    <div>
+        <h2>onclick 속성</h2>
+        <p class="comment">* onclick=JavaScript</p>
+        <p> onclick="this.innerHTML = '클릭하면 텍스트 변경!'"</p>
+
+        <p class="result" onclick="this.innerHTML = '클릭하면 텍스트 변경!'">[결과] 이곳을 클릭!</p>
+
+        <hr>
+
+        <!-- ====================================================== -->
+        <p class="result" onclick="changeText(this)">[결과] 이 곳을 클릭!</p>
+        <pre>
+            function changeText(x) {
+                x.innerHTML = "클릭하면 텍스트 변경!"
+            }
+        </pre>
+
+        <script>
+            function changeText(x) {
+                x.innerHTML = "클릭하면 텍스트 변경!"
+            }
+        </script>
+    </div>
+
+    <!-- ====================================================== -->
+    <div>
+        <h2>HTML 이벤트 속성 사용 - HTML 요소에 이벤트를 할당</h2>
+        <p>날짜 생성 버튼</p>
+
+        <button onclick="dis_Date1()">몇 시야?</button>
+
+        <p class="result" id="result2">[결과] </p>
+
+        <script>
+            function dis_Date1() {
+                document.getElementById("result2").innerHTML = Date()
+            }
+        </script>
+    </div>
+
+    <!-- ====================================================== -->
+    <div>
+        <h2>HTML DOM을 사용하여 이벤트 할당</h2>
+        <p>버튼 요소에 onclick 이벤트 할당</p>
+
+        <button id="myBtn1">클릭 시도!</button>
+
+        <p class="result" id="result3">[결과] </p>
+
+        <script>
+            document.getElementById("myBtn1").onclick = dis_Date2
+
+            function dis_Date2() {
+                document.getElementById("result3").innerHTML = Date()
+            }
+        </script>
+    </div>
+
+    <!-- ====================================================== -->
+    <div>
+        <h2>onload / onunload 이벤트</h2>
+        <p class="comment">* onload/onunload: 사용자가 페이지에 들어오거나 나갈 때 트리거<br>
+            * onload는 방문자의 브라우저 유형과 브라우저 버전을 확인하고, 해당 정보에 따라 적절한 버전의 웹 페이지를 로드하는 데 사용</p>
+
+        <p class="result" id="result4">[결과] </p>
+
+        <script>
+            function ck_cookies() {
+                let text = ""
+
+                if (navigator.cookieEnabled == true)
+                    text = "Cookies are enabled."
+                else
+                    text = "Cookies are not enabled."
+
+                document.getElementById("result4").innerHTML = text;
+            }
+        </script>
+    </div>
+
+    <!-- ====================================================== -->
+    <div>
+        <h2>oninput 이벤트</h2>
+        <p class="comment">*oninput 이벤트: 사용자가 데이터를 입력하는 동안 어떤 동작이 수행되는 경우<br>
+            * 아래 입력 필드를 작성할 때, 대문자로 변환 함수 트리거
+        </p>
+
+        <pre>
+            input 태그 안에 => oninput="함수명()"
+
+            function 함수명() {
+                const x =
+                    document.getElementById("fname")
+                x.value = x.value.toUpperCase()
+            }
+        </pre>
+
+        <p>이름을 입력하세요: <input type="text" id="fname" oninput="up_case()"></p>
+
+        <script>
+            function up_case() {
+                const x =
+                    document.getElementById("fname")
+                x.value = x.value.toUpperCase()
+            }
+        </script>
+    </div>
+
+
+    <!-- ====================================================== -->
+    <div>
+        <h2>onchange 이벤트</h2>
+        <p class="comment">* 입력 필드의 유효성 검사</p>
+
+        <pre>
+            input 태그 안에 => onchange="함수명()"
+
+            function 함수명() {
+                const x =
+                    document.getElementById("fname")
+                x.value = x.value.toUpperCase()
+            }
+        </pre>
+
+        <p>이름 입력: <input type="text" id="fname2" onchange="up_case()"></p>
+
+        <p>입력 필드에 소문자로 이름을 작성하고 나가면 자동으로 대문자로 변경</p>
+
+        <script>
+            function up_case() {
+                const x2 =
+                    document.getElementById("fname2")
+                x2.value = x2.value.toUpperCase()
+            }
+        </script>
+    </div>
+
+    <!-- ====================================================== -->
+    <h2>onmouseover / onmouseout 이벤튼</h2>
+
+    <div>
+        <p class="comment">* onmouseover/onmouseout: 사용자가 HTML 요소 위로 마우스를 올리거나 HTML 요소에서 벗어날 때 함수를 트리거하는 데 사용</p>
+
+        <div class="box" onmouseover="m_over(this)" onmouseout="m_out(this)">
+            이곳에 마우스 올려 보세요!
+        </div>
+
+        <script>
+            function m_over(obj) {
+                obj.innerHTML = "감사합니다!"
+            }
+
+            function m_out(obj) {
+                obj.innerHTML = "이곳에 마우스를 올려보세요!"
+            }
+        </script>
+    </div>
+
+    <!-- ====================================================== -->
+    <h2>onmousedown / onmouseup / onclick 이벤트</h2>
+    <div class="box" onmousedown="m_down(this)" onmouseup="m_up(this)">
+        클릭하세요!
+    </div>
+
+    <script>
+        function m_down(obj) {
+            obj.style.backgroundColor = "darkblue"
+            obj.innerHTML = "나가기!"
+        }
+
+        function m_up(obj) {
+            obj.style.backgroundColor = "orangered"
+            obj.innerHTML = "감사합니다!"
+        } 
+    </script>
+</body>
+
+</html>

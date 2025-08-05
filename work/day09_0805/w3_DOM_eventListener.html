@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[w3] JS HTML DOM EventListener</title>
+    <link rel="stylesheet" href="./css/myStyle.css">
+    <style>
+        #myDiv1,
+        #myDiv2 {
+            width: 95%;
+            background-color: lightskyblue;
+            padding: 5px;
+            margin: 10px auto;
+        }
+
+        #myP1,
+        #myP2 {
+            width: 95%;
+            background-color: white;
+            font-size: 20px;
+            border: 1px solid;
+            padding: 5px;
+            margin: 10px auto
+        }
+
+        #myDiv3 {
+            width: 95%;
+            background-color: lightsalmon;
+            padding: 5px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML 요소에 이벤트 핸들러 추가</h1>
+
+    <div>
+        <h2>버튼에 클릭 이벤트 사용 - addEventListener("이벤트", 함수)</h2>
+        <p class="comment">* element.addEventListener(event, function, useCapture)</p>
+        <p>document.getElementById("myBtn").addEventListener("click", function () { alert("Hello World!") })</p>
+
+        <button id="myBtn">클릭하세요!</button>
+
+        <script>
+            // 익명함수 : 바로 실행
+            document.getElementById("myBtn").addEventListener("click", function () { alert("Hello World!") })
+        </script>
+
+        <br> <br>
+        <hr>
+
+        <h2>버튼에 클릭 이벤트 사용 - addEventListener("이벤트", 외부 함수)</h2>
+        <p> </p>
+
+        <button id="myBtn2">클릭하세요!</button>
+
+        <script>
+            document.getElementById("myBtn2").addEventListener("click", myFunc)
+
+            function myFunc() {
+                alert("Hello World!")
+            }
+        </script>
+    </div>
+
+    <!-- ======================================== -->
+    <h1>같은 요소에 많은 이벤트 핸들러 추가</h1>
+
+    <div>
+        <h2>하나의 버튼에 2개의 클릭 이벤트 추가</h2>
+        <p> var x = document.getElementById("myBtn3")<br>
+            x.addEventListener("click", myFunc2)<br>
+            x.addEventListener("click", othFunc)</p>
+
+        <button id="myBtn3">클릭하세요!</button>
+
+        <script>
+            var x = document.getElementById("myBtn3")
+            x.addEventListener("click", myFunc2)
+            x.addEventListener("click", othFunc)
+
+            function myFunc2() {
+                alert("첫 번재 함수 실행!")
+            }
+
+            function othFunc() {
+                alert("다른 함수도 실행되었습니다!")
+            }
+        </script>
+
+        <br><br>
+        <hr>
+
+        <h2>하나의 버튼에 여러 종류의 이벤트 추가</h2>
+        <p>var x2 = document.getElementById("myBtn4")<br>
+            x2.addEventListener("mouseover", myFunc3) => 마우스를 올려놓으면<br>
+            x2.addEventListener("click", myFunc3_2) => 마우스를 클릭하면<br>
+            x2.addEventListener("mouseout", myFunc3_3) => 마우스 나가면</p>
+
+        <button id="myBtn4">시도해 보세요!</button>
+
+        <script>
+            var x2 = document.getElementById("myBtn4")
+
+            x2.addEventListener("mouseover", myFunc3)
+            x2.addEventListener("click", myFunc3_2)
+            x2.addEventListener("mouseout", myFunc3_3)
+
+            function myFunc3() {
+                x2.innerHTML = "Mouse over"
+            }
+
+            function myFunc3_2() {
+                x2.innerHTML += "Click"
+            }
+
+            function myFunc3_3() {
+                x2.innerHTML = "Mouse out"
+            }
+
+        </script>
+
+    </div>
+
+    <!-- ======================================== -->
+    <h1>윈도우 객체에 이벤트 핸들러 추가</h1>
+
+    <div>
+        <h2> = xmlHttpRequest 객체</h2>
+        <p>window.addEventListener("resize", function () {
+            document.getElementById("result").innerHTML = Math.random()
+            })</p>
+
+        <p class="result" id="result">[결과]</p>
+
+        <script>
+            window.addEventListener("resize", function () {
+                document.getElementById("result").innerHTML = Math.random()
+            })
+        </script>
+    </div>
+
+    <!-- ======================================== -->
+    <h1>매개변수 전달(Passing Parameters)</h1>
+    <div>
+        <p>매개변수 값을 전달할 때, 매개변수를 사용하여 지정된 함수를 호출하는 "익명함수"를 사용</p>
+        <p>버튼을 클릭했을 때 계산을 수행하는 함수 실행</p>
+
+        <button id="myBtn5">시도!</button>
+        <p class="result" id="result2">[결과] </p>
+
+        <script>
+            let p1 = 5
+            let p2 = 7
+
+            document.getElementById("myBtn5").addEventListener("click", function () {
+                myFunc4(p1, p2)
+            })
+
+            function myFunc4(a, b) {
+                document.getElementById("result2").innerHTML += a * b
+            }
+        </script>
+    </div>
+
+
+    <!-- ======================================== -->
+    <h1>Event Bubbling / Event Capturing</h1>
+
+    <div>
+        <p class="comment">
+            * 버블링 : 가장 안쪽 요소의 이벤트를 먼저 처리 => 바깥쪽 요소 처리<br>
+            == p 태그의 클릭 이벤트 먼저 처리 => div 태그의 클릭 이벤트 처리<br>
+            * 캡쳐링 : 가장 바깥쪽 요소의 이벤트 먼저 처리 => 안쪽 요소의 이벤트 처리 <br>
+            == div 태그의 클릭 이벤트 먼저 처리 => p 태그의 클릭 이벤트 처리<br>
+            * addEventListener(event, function, useCapture)
+        </p>
+
+        <div id="myDiv1">
+            <h2>버블링</h2>
+            <p id="myP1">클릭하세요!</p>
+        </div>
+
+        <div id="myDiv2">
+            <h2>캡쳐링</h2>
+            <p id="myP2">클릭하세요!</p>
+        </div>
+
+        <script>
+            // 버블링(false) : 안 => 밖
+            document.getElementById("myP1").addEventListener("click", function () {
+                alert("흰색 요소를 클릭하였습니다!")
+            }, flase)
+
+            document.getElementById("myDiv1").addEventListener("click", function () {
+                alert("하늘색 요소를 클릭하였습니다!")
+            }, flase)
+
+            //  캡쳐(true): 밖 => 안
+            document.getElementById("myP2").addEventListener("click", function () {
+                alert("흰색 요소를 클릭하였습니다!")
+            }, true)
+
+            document.getElementById("myDiv2").addEventListener("click", function () {
+                alert("하늘색 요소를 클릭하였습니다!")
+            }, true)
+
+        </script>
+    </div>
+
+    <!-- ======================================== -->
+    <h1>removeEventListener()</h1>
+
+    <div>
+        <h2>addEventListener()로 첨부된 이벤트 핸들러 제거</h2>
+
+        <p id="result3">[결과]</p>
+
+        <div id="myDiv3">
+            <p>* div(오렌지 박스)에 마우스 올려놓으면 Math.random() 실행</p>
+            <p>* 아래 버튼 클릭 시, div의 이벤트 핸들러를 제거합니다.</p>
+            <button onclick="rmv_Handler()" id="myBtn6">제거</button>
+        </div>
+
+
+        <script>
+            document.getElementById("myDiv3").addEventListener("mouseover", myFunc5)
+
+            function myFunc5() {
+                document.getElementById("result3").innerHTML = Math.random()
+            }
+
+            function rmv_Handler() {
+                document.getElementById("myDiv3").removeEventListener("mousemove", myFunc5)
+            }
+        </script>
+    </div>
+
+</body>
+
+</html>

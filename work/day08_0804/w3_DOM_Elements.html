@@ -65,12 +65,12 @@
         <p id="result5"></p>
 
         <script>
-            const f = document.forms["frm1"]            
+            const f = document.forms["frm1"]
 
             let text = ""
             for (let i = 0; i < f.length; i++) {
                 // 누적
-                text += "폼 안의 요소" + (i + 1) + " : "+ f.elements[i].value + "<br>"                
+                text += "폼 안의 요소" + (i + 1) + " : " + f.elements[i].value + "<br>"
             }
 
             document.getElementById("result4").innerHTML = text
@@ -78,18 +78,6 @@
         </script>
     </div>
 
-    <div>
-        <h2>속성값 변경</h2>
-        <p><span>.src</span>로 이미지 변경</p>
-        <p>document.getElementById("image")<span>.src</span> = "./image/landscape.jpg"</p>
-
-        <img id="image" src="./image/smiley.gif" width="160px" height="120px">
-        
-        <script>
-            document.getElementById("image").src = "./image/landscape.jpg"
-        </script>
-
-    </div>
 </body>
 
 </html>
