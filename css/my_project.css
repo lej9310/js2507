@@ -79,7 +79,7 @@ a:hover {
     height: 15px;
     /* 불릿과 텍스트 간 간격 */
     margin-right: 15px;
-    background-image: url(../work/attach_button.png);
+    background-image: url(../image/attach_button.png);
     background-repeat: no-repeat;
     background-size: contain;
     /* 이미지 전체를 꽉 채워서 보이도록 */
