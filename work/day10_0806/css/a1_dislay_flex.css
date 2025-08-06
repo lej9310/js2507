@@ -81,10 +81,13 @@ ul {
     z-index: 10;
 }
 
-.main_menu>li:hover>.sub_menu {
-    /* 마우스 오버 시ㅣ, 서브메뉴 표시 */
+/* .main_menu>li:hover {
+    background: darkblue;
+} */
+
+/* .main_menu>li:hover>.sub_menu {    
     display: block;
-}
+} */
 
 .sub_menu li {
     padding: 5px 5px;
