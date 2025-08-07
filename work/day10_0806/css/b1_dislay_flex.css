@@ -1,0 +1,149 @@
+body {
+    background-color: #ffffff;
+    color: #333333;
+    width: 1200px;
+    margin: 10px auto;
+    padding: 10px;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    height: 100px;
+    background: white;
+}
+
+/* .logo */
+header>div:nth-child(1) {
+    flex-grow: 1;
+}
+
+/* .main */
+header>div:nth-child(2) {
+    flex-grow: 6;
+}
+
+ul {
+    list-style: none;
+}
+
+.main_menu {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    background: darkslategrey;
+}
+
+.main_menu>li {
+    flex: 1 1 0;
+    text-align: center;
+    position: relative;
+    /* 각 메뉴 아이템 오른쪽에 구분선 */
+    border-right: 1px solid white;
+}
+
+/* 마지막 메뉴 아이템에는 구분선 제거 */
+.main_menu>li:last-child {
+    border-right: none;
+}
+
+.main_menu>li>a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: white;
+}
+
+.sub_menu {
+    /* 서브메뉴 숨김 */
+    display: none;
+    position: absolute;
+    /* 메인 메뉴 폭과 동일하게 */
+    top: 100%;
+    width: 100%;
+    left: 0;
+    padding: 10px 0;
+    background: #ccc;
+    border: 1px solid #ccc;
+    text-align: justify;
+}
+
+/* .main_menu>li:hover {
+    background: darkblue;
+} */
+
+/* .main_menu>li:hover>.sub_menu {    
+    display: block;
+} */
+
+.main_menu .sub_menu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.main_menu .sub_menu.show {
+    max-height: 100px;
+    opacity: 1;    
+}
+
+.sub_menu li {
+    padding: 5px 5px;
+}
+
+section {
+    height: 300px;
+}
+
+article {
+    display: flex;
+    height: 200px;
+    width: 100%;
+    margin: 30px 0;
+}
+
+article>ul {
+    background: lightgoldenrodyellow;
+    margin: 0 5px;
+    flex: 1 1 0;
+}
+
+.c1_c2>li {
+    display: block;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid darkgoldenrod;
+}
+
+.c1_c2>li:last-child {
+    border-bottom: none;
+}
+
+
+.c1_c2>li:last-child {
+    border-right: none;
+}
+
+footer {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    background: lightgray;
+    margin: 0;
+}
+
+footer>div:nth-child(1) {
+    flex: 1;
+    padding: 10px;
+}
+
+footer>div:nth-child(2) {
+    flex: 5;
+    padding: 10px;
+}
+
+footer>div:nth-child(3) {
+    flex: 1;
+    padding: 10px;
+}

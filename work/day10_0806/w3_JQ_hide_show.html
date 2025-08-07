@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[w3] jQuery Effects</title>
+    <link rel="stylesheet" href="./css/myStyle.css">
+</head>
+
+<body>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+
+    <h1>jQuery hide()/show()</h1>
+
+    <div>
+        <p>Hide 버튼을 클릭=> 사라짐/ Show 버튼을 누르면=> 나타남</p>
+        <button id="hide">Hide</button>
+        <button id="show">Show</button>
+
+        <script>
+            $(document).ready(function () {
+                $("#hide").click(function () {
+                    $("p").hide()
+                })
+                $("#show").click(function () {
+                    $("p").show()
+                })
+            })
+        </script>
+
+        <hr>
+
+        <h3>Hide1 버튼을 클릭=> 사라짐/ Show 버튼을 누르면=> 나타남</h3>
+        <button id="hide1">Hide1</button>
+        <button id="show1">Show1</button>
+        <script>
+            $(document).ready(() => {
+                $("#hide1").click(() => {
+                    $("h3").hide()
+                })
+                $("#show1").click(() => {
+                    $("h3").show()
+                })
+            })
+        </script>
+    </div>
+
+    <!-- ===================================== -->
+    <div>        
+        <p class="p1">Hide 버튼을 누르면</p>
+        <p class="p1">이 문단은 사라집니다.</p>
+
+        <script>
+            $(document).ready(() => {
+                $("#hide2").click(() => {
+                    $(".p1").hide(1000)
+                })
+            })
+        </script>
+
+        <button id="hide2">Hide</button>
+    </div>
+    
+    <!-- ===================================== -->
+    <h1>jQuery toggle()</h1>
+
+    <div>        
+        <p class="p2">Hide 버튼을 누르면</p>
+        <p class="p2">이 문단은 사라집니다.</p>
+
+        <script>
+            $(document).ready(() => {
+                $("#hide3").click(() => {
+                    $(".p2").toggle()
+                })
+            })
+        </script>
+
+        <button id="hide3">숨김/표시 토글</button>
+    </div>
+
+
+</body>
+
+</html>
